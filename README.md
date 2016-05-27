@@ -25,7 +25,7 @@ html {}
 }
 
 .truc:before {
-	content: '/* Contentenu méchant !!! */ \' ';
+	content: '/* Contenu méchant !!! */ \' ';
 }
 
 /* Un commentaire sur une ligne */
@@ -34,5 +34,5 @@ html {}
 In:
 
 ```ruby
-body{padding-top:89px}.truc{padding:10px}.truc:before{content:'/* Contentenu méchant !!! */ \' '}
+body{padding-top:89px}.truc{padding:10px}.truc:before{content:'/* Contenu méchant !!! */ \' '}
 ```
