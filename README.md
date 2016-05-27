@@ -1,3 +1,3 @@
 To compress:
 
-./compress <input file> <output file>
+./compress \<input file\> \<output file\>
