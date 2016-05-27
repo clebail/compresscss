@@ -1,6 +1,14 @@
-To compress:
+Compresscss is just a simple css compressor
 
-./compress \<input file\> \<output file\>
+To compile:
+```
+make
+```
+
+To compress:
+```
+./compress <input file> <output file>
+```
 
 For example, with the test.css file, It will compress
 ```ruby
