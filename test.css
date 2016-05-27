@@ -19,7 +19,7 @@ html {}
 }
 
 .truc:before {
-	content: '/* Contentenu méchant !!! */ \' ';
+	content: '/* Contenu méchant !!! */ \' ';
 }
 
 /* Un commentaire sur une ligne */
