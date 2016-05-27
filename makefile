@@ -1,5 +1,5 @@
 ALL=compress
-CC=g++
+CC=gcc
 CFLAGS=-Wall
 LDFLAGS=
 
@@ -8,7 +8,7 @@ all: $(ALL)
 $(ALL): compress.o
 	$(CC) -o $@ $(LDFLAGS) $^
 	
-%.o: %.cpp
+%.o: %.c
 	$(CC) -o $@ $(CFLAGS) -c $<
 	
 clean:

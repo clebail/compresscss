@@ -3,6 +3,10 @@
 #include <string.h>
 
 #define BUFFER_SIZE				1024
+#define FALSE					0
+#define TRUE					(!FALSE)
+
+typedef unsigned char BOOL;
 
 long int getFileSize(FILE *);
 size_t readFile(FILE *, char *);
@@ -15,7 +19,7 @@ int main(int argc, char **argv) {
 	char *inputBuffer;
 	long int inputSize, gain;
 	long unsigned idx = 0, idxStartCmtr = 0;
-	bool inDebutLigne = true, inCommentaire = false, inQuote = false;
+	BOOL inDebutLigne = TRUE, inCommentaire = FALSE, inQuote = FALSE;
 	char quote;
 
 	if (argc < 3) {
@@ -49,14 +53,14 @@ int main(int argc, char **argv) {
 				if (c == '*' && inputBuffer[idx + 1] == '/') {
 					dropSequence(inputBuffer, idxStartCmtr, idx - idxStartCmtr + 2, strlen(inputBuffer));
 
-					inCommentaire = false;
+					inCommentaire = FALSE;
 					idx = idxStartCmtr;
 				} else {
 					idx++;
 				}
 			} else if (c == '/' && inputBuffer[idx + 1] == '*') {
 				idxStartCmtr = idx;
-				inCommentaire = true;
+				inCommentaire = TRUE;
 				idx += 2;
 			} else if ((c == ' ' || c == '\t') && inDebutLigne) {
 				dropSequence(inputBuffer, idx, 1, strlen(inputBuffer));
@@ -86,20 +90,20 @@ int main(int argc, char **argv) {
 				}
 			} else if (c == '\r') {
 				dropSequence(inputBuffer, idx, inputBuffer[idx + 1] == '\n' ? 2 : 1, strlen(inputBuffer));
-				inDebutLigne = true;
+				inDebutLigne = TRUE;
 			} else if (c == '\n') {
 				dropSequence(inputBuffer, idx, 1, strlen(inputBuffer));
-				inDebutLigne = true;
+				inDebutLigne = TRUE;
 			}else if(c == '\'' || c == '"') {
-				inQuote = true;
+				inQuote = TRUE;
 				quote = c;
 				idx++;
 			} else {
-				inDebutLigne = false;
+				inDebutLigne = FALSE;
 				idx++;
 			}
 		} else if (c == quote && inputBuffer[idx-1] != '\\') {
-			inQuote = false;
+			inQuote = FALSE;
 			idx++;
 		} else {
 			idx++;
