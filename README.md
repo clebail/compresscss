@@ -2,7 +2,7 @@ To compress:
 
 ./compress \<input file\> \<output file\>
 
-It will compress
+For example, with the test.css file, It will compress
 ```ruby
            body 							{
 
