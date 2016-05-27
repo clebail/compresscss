@@ -147,8 +147,7 @@ size_t readFile(FILE *file, char *result) {
 	return totalRead;
 }
 
-void dropSequence(char *buffer, long int start, long int length,
-		long unsigned bufferLength) {
+void dropSequence(char *buffer, long int start, long int length, long unsigned bufferLength) {
 	char *temp = (char *) malloc((bufferLength - start - length + 1) * sizeof(char));
 	strcpy(temp, &buffer[start + length]);
 
