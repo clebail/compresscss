@@ -81,7 +81,7 @@ int main(int argc, char **argv) {
 					long unsigned i = idx - 1;
 					int len = 0;
 
-					while (inputBuffer[i - 1] != '}' && i - 1) {
+					while (((long)(i - 1)) >= 0 && inputBuffer[i - 1] != '}') {
 						i--;
 						len++;
 					}
