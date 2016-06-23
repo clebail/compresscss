@@ -22,4 +22,8 @@ html {}
 	content: '/* Contenu méchant !!! */ \' ';
 }
 
+.truc 				:before {
+	margin:                        789px;
+}
+
 /* Un commentaire sur une ligne */

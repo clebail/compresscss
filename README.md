@@ -28,11 +28,15 @@ html {}
 	content: '/* Contenu méchant !!! */ \' ';
 }
 
+.truc                           :before {
+        margin:                        789px;
+}
+
 /* Un commentaire sur une ligne */
 ```
 
 In:
 
 ```ruby
-body{padding-top:89px}.truc{padding:10px}.truc:before{content:'/* Contenu méchant !!! */ \' '}
+body{padding-top:89px}.truc{padding:10px}.truc:before{content:'/* Contenu méchant !!! */ \' '}.truc :before{margin:789px}
 ```

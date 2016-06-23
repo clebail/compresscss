@@ -13,6 +13,7 @@ size_t readFile(FILE *, char *);
 void dropSequence(char *, long int, long int, long unsigned);
 long unsigned dropSpaceBefore(char *, long unsigned);
 long unsigned dropSpaceAfter(char *, long unsigned);
+long unsigned addSpaceBefore(char *, long unsigned);
 
 int main(int argc, char **argv) {
 	FILE *input, *output;
@@ -65,7 +66,11 @@ int main(int argc, char **argv) {
 			} else if ((c == ' ' || c == '\t') && inDebutLigne) {
 				dropSequence(inputBuffer, idx, 1, strlen(inputBuffer));
 			} else if (c == ':' || c == ';' || c == ',' || c == '+' || c == '~' || c == '>' || c == '{' || c == '!') {
+				int idxBefore = idx;
 				idx = dropSpaceBefore(inputBuffer, idx);
+				if(idxBefore != idx && c == ':') {
+					idx = addSpaceBefore(inputBuffer, idx);
+				}
 				idx = dropSpaceAfter(inputBuffer, idx) + 1;
 			} else if (c == '}') {
 				idx = dropSpaceBefore(inputBuffer, idx);
@@ -191,4 +196,16 @@ long unsigned dropSpaceAfter(char *buffer, long unsigned idx) {
 	}
 
 	return idx;
+}
+
+long unsigned addSpaceBefore(char *buffer, long unsigned idx) {
+	char *temp = (char *)malloc((strlen(&buffer[idx]) + 1) * sizeof(char));
+	
+	strcpy(temp, &buffer[idx]);
+	strcpy(&buffer[idx+1], temp);
+	buffer[idx] = ' ';
+
+	free(temp);
+
+	return idx+1;
 }
