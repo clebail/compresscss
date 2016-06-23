@@ -26,4 +26,8 @@ html {}
 	margin:                        789px;
 }
 
+.truc  													a {
+	text-decoration: underline;
+}
+
 /* Un commentaire sur une ligne */

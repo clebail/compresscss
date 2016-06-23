@@ -104,6 +104,11 @@ int main(int argc, char **argv) {
 				quote = c;
 				idx++;
 			} else {
+				int idxBefore = idx;
+				idx = dropSpaceBefore(inputBuffer, idx);
+                if(idxBefore != idx) {
+                    idx = addSpaceBefore(inputBuffer, idx);
+                }
 				inDebutLigne = FALSE;
 				idx++;
 			}
