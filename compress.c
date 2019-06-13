@@ -65,14 +65,19 @@ int main(int argc, char **argv) {
 				idx += 2;
 			} else if ((c == ' ' || c == '\t') && inDebutLigne) {
 				dropSequence(inputBuffer, idx, 1, strlen(inputBuffer));
-			} else if (c == ':' || c == ';' || c == ',' || c == '+' || c == '~' || c == '>' || c == '{' || c == '!') {
+			} else if (c == ':' || c == ';' || c == ',' || c == '~' || c == '>' || c == '{' || c == '!') {
 				int idxBefore = idx;
 				idx = dropSpaceBefore(inputBuffer, idx);
 				if(idxBefore != idx && c == ':') {
 					idx = addSpaceBefore(inputBuffer, idx);
 				}
 				idx = dropSpaceAfter(inputBuffer, idx) + 1;
-			} else if (c == '}') {
+			} else if (c == '+') {
+                idx = dropSpaceBefore(inputBuffer, idx);
+                idx = addSpaceBefore(inputBuffer, idx);
+                idx = dropSpaceAfter(inputBuffer, idx) + 1;
+                idx = addSpaceBefore(inputBuffer, idx);
+            } else if (c == '}') {
 				idx = dropSpaceBefore(inputBuffer, idx);
 				if (inputBuffer[idx - 1] == ';') {
 					dropSequence(inputBuffer, --idx, 1, strlen(inputBuffer));

@@ -30,4 +30,8 @@ html {}
 	text-decoration: underline;
 }
 
+.trux a span																						{
+		width: calc(100%+2px);
+}
+
 /* Un commentaire sur une ligne */

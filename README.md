@@ -43,11 +43,17 @@ html {}
 .truc                                                                                                   a {
         text-decoration: underline;
 }
+
+
+.trux a span																						{
+		width: calc(100%+2px);
+}
+
 /* Un commentaire sur une ligne */
 ```
 
 In:
 
 ```ruby
-body{padding-top:89px}.truc{padding:10px}.truc:before{content:'/* Contenu méchant !!! */ \' '}.truc :before{margin:789px}.truc a{text-decoration:underline}
+body{padding-top:89px}.truc{padding:10px}.truc:before{content:'/* Contenu méchant !!! */ \' '}.truc :before{margin:789px}.truc a{text-decoration:underline}.trux a span{width:calc(100% + 2px)}
 ```
